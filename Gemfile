@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 
-group :development, :test do
-  gem 'rspec-rails', '~> 2.0'
+gem "rspec-rails", :group => [:test, :development]
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'guard-rspec'
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
