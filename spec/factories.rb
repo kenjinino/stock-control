@@ -4,5 +4,10 @@ FactoryGirl.define do
     price 1.00
   end
 
+  factory :client do
+    sequence(:name) { |n| "client name foo#{n}" }
+    sequence(:address) { |n| "client address foo#{n}" }
+  end
+
 end
 

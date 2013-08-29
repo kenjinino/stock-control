@@ -1,4 +1,6 @@
 StockControl::Application.routes.draw do
+  resources :clients
+
   resources :products
 
   # The priority is based upon order of creation: first created -> highest priority.
