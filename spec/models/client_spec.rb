@@ -6,6 +6,7 @@ describe Client do
   subject { client }
 
   it { should be_valid }
+  it { should respond_to :orders }
 
   describe "validations" do
     it "exceeding name length" do

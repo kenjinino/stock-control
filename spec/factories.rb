@@ -9,5 +9,9 @@ FactoryGirl.define do
     sequence(:address) { |n| "client address foo#{n}" }
   end
 
+  factory :order do
+    client
+  end
+
 end
 
