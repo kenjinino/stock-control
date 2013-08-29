@@ -11,6 +11,20 @@ FactoryGirl.define do
 
   factory :order do
     client
+
+    ignore do
+      lists_count 3
+    end
+
+    after(:create) do |order, evaluator|
+      FactoryGirl.create_list(:order_line, evaluator.lists_count, order: order)
+    end
+  end
+
+  factory :order_line do
+    order
+    product
+    quantity 1
   end
 
 end

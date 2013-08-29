@@ -7,6 +7,8 @@ describe Order do
 
   it { should be_valid }
   it { should respond_to :client }
+  it { should respond_to :order_lines }
+  it { should respond_to :products }
 
   describe "validations" do
   end

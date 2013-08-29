@@ -6,6 +6,8 @@ describe Product do
   subject { product }
 
   it { should be_valid }
+  it { should respond_to :order_lines }
+  it { should respond_to :orders }
 
   describe "validations" do
     it "exceeding name length" do
