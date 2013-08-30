@@ -14,5 +14,15 @@ describe OrderLine do
       order_line.quantity = 0
       should_not be_valid
     end
+
+    it "with no product" do
+      order_line.product = nil
+      should_not be_valid
+    end
+
+    it "with no order" do
+      order_line.order = nil
+      should_not be_valid
+    end
   end
 end
