@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130829092918) do
+ActiveRecord::Schema.define(version: 20130901105114) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20130829092918) do
     t.datetime "updated_at"
   end
 
+  add_index "order_lines", ["order_id", "product_id"], name: "index_order_lines_on_order_id_and_product_id", unique: true, using: :btree
   add_index "order_lines", ["order_id"], name: "index_order_lines_on_order_id", using: :btree
   add_index "order_lines", ["product_id"], name: "index_order_lines_on_product_id", using: :btree
 

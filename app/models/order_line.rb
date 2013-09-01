@@ -3,6 +3,6 @@ class OrderLine < ActiveRecord::Base
   belongs_to :product
 
   validates :quantity, presence: true, numericality: { greater_than: 0 }
-  validates :product, presence: true
-  validates :order, presence: true
+  validates :product_id, presence: true, uniqueness: { scope: :order_id }
+  validates :order_id, presence: true
 end
