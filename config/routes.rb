@@ -1,3 +1,5 @@
+require 'api_constraints'
+
 StockControl::Application.routes.draw do
   devise_for :users
     as :user do
@@ -15,6 +17,16 @@ StockControl::Application.routes.draw do
 
   devise_scope :user do
     root to: "devise/sessions#new"
+  end
+
+  namespace :api, defaults: { format: 'json' } do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
+      resources :orders
+     
+      resources :clients
+     
+      resources :products
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
