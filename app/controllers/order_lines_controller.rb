@@ -1,6 +1,8 @@
 class OrderLinesController < ApplicationController
   before_action :set_order_line, only: [:show, :edit, :update, :destroy]
 
+  authorize_resource
+
   def create
     @order = Order.find(params[:order_id])
     @order_line = @order.order_lines.build(order_line_params)

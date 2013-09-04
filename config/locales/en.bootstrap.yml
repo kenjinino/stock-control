@@ -3,6 +3,11 @@
 
 en:
   helpers:
+    cancan:
+      denied:
+        alert: "Access denied."
+        not_signed_in:
+          alert: "You are not signed in."
     actions: "Actions"
     links:
       back: "Back"
