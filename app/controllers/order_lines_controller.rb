@@ -25,8 +25,10 @@ class OrderLinesController < ApplicationController
     @order_line.destroy
 
     respond_to do |format|
+      flash.now[:notice] = "Order line was successfully destroyed."
       format.html { redirect_to order_path(params[:order_id]) }
       format.json { head :no_content }
+      format.js
     end
   end
 

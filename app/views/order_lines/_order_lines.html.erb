@@ -1,5 +1,5 @@
 
-      <tr>
+      <tr id="<%= dom_id(order_line) %>">
         <td><%= link_to order_line.id, order_order_line_path(order_line.order_id, order_line.id) %></td>
         <td><%= order_line.product.name %></td>
         <td><%= order_line.quantity %></td>
@@ -9,6 +9,7 @@
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       order_order_line_path(order_line.order_id, order_line.id),
                       :method => :delete,
+                      remote: true,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
         </td>
