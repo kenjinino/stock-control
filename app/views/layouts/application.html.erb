@@ -49,7 +49,7 @@
             <ul class="nav pull-right">
               <% if user_signed_in? %>
                 <li>
-                    <a>Signed in as <%= current_user.email %></a>
+                  <%= link_to "Signed in as " + current_user.email, edit_user_registration_path %>
                 </li>
                 <li class="divider-vertical" />
                 <li>

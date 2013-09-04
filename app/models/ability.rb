@@ -4,6 +4,10 @@ class Ability
   def initialize(user)
 
     if user
+      can :manage, Order
+      can :manage, OrderLine
+      can :manage, Client
+      can :manage, Product
     end
 
     # Define abilities for the passed in user here. For example:
