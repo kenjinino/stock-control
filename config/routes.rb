@@ -1,4 +1,6 @@
 StockControl::Application.routes.draw do
+  devise_for :users
+
   resources :orders do
     resources :order_lines, except: [:index, :new]
   end
@@ -6,6 +8,10 @@ StockControl::Application.routes.draw do
   resources :clients
 
   resources :products
+
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
