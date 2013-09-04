@@ -13,6 +13,7 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'simple_form', '~> 3.0.0.rc'
 gem 'devise', '~> 3.1.0.rc'
+gem 'devise_invitable', :github => 'scambra/devise_invitable', branch: 'devise-3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'

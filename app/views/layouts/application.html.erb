@@ -46,10 +46,20 @@
           </a>
           <a class="brand" href="#">StockControl</a>
           <div class="container-fluid nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+            <ul class="nav pull-right">
+              <% if user_signed_in? %>
+                <li>
+                    <a>Signed in as <%= current_user.email %></a>
+                </li>
+                <li class="divider-vertical" />
+                <li>
+                  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to "Sign in", new_user_session_path %>
+                </li>
+              <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
