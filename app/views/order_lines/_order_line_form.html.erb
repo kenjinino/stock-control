@@ -1,0 +1,6 @@
+<%= simple_form_for [order, order_line], remote: true do |f| %>
+  <%= f.error_notification %>
+  <%= f.association :product %>
+  <%= f.input :quantity %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>

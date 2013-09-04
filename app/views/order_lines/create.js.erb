@@ -1,0 +1,3 @@
+$("#order_lines_list").append("<%= escape_javascript(render 'order_lines/order_lines', order_line: @order_line) %>");
+$("#bootstrap_flash").html("<%= escape_javascript(bootstrap_flash) %>");
+$("#order_line_form").html("<%= escape_javascript(render 'order_lines/order_line_form', order: @order, order_line: OrderLine.new ) %>");

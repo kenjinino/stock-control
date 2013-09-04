@@ -1,5 +1,7 @@
 StockControl::Application.routes.draw do
-  resources :orders
+  resources :orders do
+    resources :order_lines, except: [:index, :new]
+  end
 
   resources :clients
 
