@@ -1,7 +1,6 @@
 module Api
   module V1
-    class OrdersController < ApplicationController
-      respond_to :json
+    class OrdersController < ApiController
       before_action :set_order, only: [:show, :update, :destroy]
     
       # GET /orders

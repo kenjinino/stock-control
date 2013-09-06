@@ -1,7 +1,6 @@
 module Api
   module V1
-    class ClientsController < ApplicationController
-      respond_to :json
+    class ClientsController < ApiController
       before_action :set_client, only: [:show, :update, :destroy]
     
       # GET /clients

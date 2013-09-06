@@ -1,7 +1,6 @@
 module Api
   module V1
-    class ProductsController < ApplicationController
-      respond_to :json
+    class ProductsController < ApiController
       before_action :set_product, only: [:show, :update, :destroy]
     
       # GET /products

@@ -26,6 +26,9 @@ StockControl::Application.routes.draw do
       resources :clients
      
       resources :products
+
+      post 'token/create' => 'api#create'
+      delete 'token/destroy' => 'api#destroy'
     end
   end
 
