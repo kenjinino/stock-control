@@ -11,7 +11,7 @@ module Api
 
         if @user && @user.valid_password?(params[:password])
           @user.save
-          render :json => { :authentication_token => @user.authentication_token, :user_id => @user.id }, :status => :created
+          render :json => { id: @user.id, authentication_token: @user.authentication_token }, :status => :created
         else
           invalid_attempt
         end
@@ -23,7 +23,7 @@ module Api
     
           if @user
             @user.reset_authentication_token!
-            render :json => { :message => ["Authentication token deleted."] },  :success => true, :status => :ok
+            render :json => { :message => "Authentication token deleted." },  :success => true, :status => :ok
           else
             invalid_attempt
           end

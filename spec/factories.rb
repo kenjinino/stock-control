@@ -27,5 +27,11 @@ FactoryGirl.define do
     quantity 1
   end
 
+  factory :user do
+    sequence(:email) { |n| "foo#{n}@example.com" }
+    password "secretpass"
+    password_confirmation { |p| p.password }
+  end
+
 end
 
