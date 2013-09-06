@@ -37,14 +37,16 @@ module Api
           @user = User.find_by authentication_token: token
     
           if @user
-            sign_in user, store: false
+            sign_in @user, store: false
+          else
+            invalid_attempt
           end
         end
       end
 
       def invalid_attempt
         warden.custom_failure!
-        render :json => { :errors => ["Invalid parameters."] },  :success => false, :status => :unauthorized
+        render :json => { :error => "Invalid parameters." },  :success => false, :status => :unauthorized
       end
     end
   end
