@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   end
 
   def reset_authentication_token!
-    self.authentication_token = nil
+    self.authentication_token = generate_authentication_token
     save(:validate => false)
   end
 
