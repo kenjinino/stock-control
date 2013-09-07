@@ -5,4 +5,8 @@ class Order < ActiveRecord::Base
   has_many :products, through: :order_lines
 
   accepts_nested_attributes_for :order_lines
+
+  def as_json(options={})
+    super(include: :order_lines)
+  end
 end
