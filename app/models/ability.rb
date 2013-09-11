@@ -8,6 +8,7 @@ class Ability
       can :manage, OrderLine
       can :manage, Client
       can :manage, Product
+      can :manage, User
     end
 
     # Define abilities for the passed in user here. For example:
