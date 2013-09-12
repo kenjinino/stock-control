@@ -1,4 +1,8 @@
 FactoryGirl.define do 
+  factory :role do
+    sequence(:name) { |n| "role foo#{n}" }
+  end
+
   factory :product do
     sequence(:name) { |n| "product foo#{n}" }
     price 1.00
@@ -31,6 +35,7 @@ FactoryGirl.define do
     sequence(:email) { |n| "foo#{n}@example.com" }
     password "secretpass"
     password_confirmation { |p| p.password }
+    role
   end
 
 end

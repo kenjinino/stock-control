@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   before_save :ensure_authentication_token
 
   has_many :invitations, :class_name => self.to_s, :as => :invited_by
+  belongs_to :role
 
   def ensure_authentication_token
     if authentication_token.blank?

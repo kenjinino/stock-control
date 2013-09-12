@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  let!(:user) { FactoryGirl.create(:user) }
+
+  subject { user }
+
+  it { should be_valid }
+  it { should respond_to :role }
 end
