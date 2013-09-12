@@ -6,15 +6,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   before_save :ensure_authentication_token
+  after_initialize :default_values
 
   has_many :invitations, :class_name => self.to_s, :as => :invited_by
   belongs_to :role
-
-  def ensure_authentication_token
-    if authentication_token.blank?
-      self.authentication_token = generate_authentication_token
-    end
-  end
 
   def reset_authentication_token!
     self.authentication_token = generate_authentication_token
@@ -28,6 +23,16 @@ class User < ActiveRecord::Base
       token = Devise.friendly_token
       break token unless User.where(authentication_token: token).first
     end    
+  end
+
+  def ensure_authentication_token
+    if authentication_token.blank?
+      self.authentication_token = generate_authentication_token
+    end
+  end
+
+  def default_values
+    self.role ||= Role.find_by name: :delivery
   end
 
 end
