@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:role) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -13,7 +14,8 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.email %></td>
+        <td><%= link_to user.email, edit_user_path(user) %></td>
+        <td><%= user.role.name %></td>
         <td><%=l user.created_at %></td>
         <td>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

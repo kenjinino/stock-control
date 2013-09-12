@@ -15,7 +15,7 @@ StockControl::Application.routes.draw do
 
   resources :products
 
-  resources :users, only: [:index, :destroy]
+  resources :users, except: [:show, :new, :create]
 
   devise_scope :user do
     root to: "devise/sessions#new"
@@ -29,7 +29,7 @@ StockControl::Application.routes.draw do
      
       resources :products
   
-      resources :users, only: [:index, :destroy]
+      resources :users, except: [:show, :new, :create]
 
       post 'token/create' => 'api#create'
       delete 'token/destroy' => 'api#destroy'
