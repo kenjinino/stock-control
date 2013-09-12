@@ -50,7 +50,7 @@ module Api
     
         # Never trust parameters from the scary internet, only allow the white list through.
         def order_params
-          params.require(:order).permit(:name, :price)
+          params.require(:order).permit(:client_id, order_lines_attributes: [ :product_id, :quantity ] )
         end
     end
   end
