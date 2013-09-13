@@ -9,6 +9,11 @@ describe Client do
   it { should respond_to :orders }
 
   describe "validations" do
+    it "with duplicate name" do
+      new_client = Client.create(name: client.name, address: client.address)
+      new_client.should_not be_valid
+    end
+
     it "exceeding name length" do
       client.name = "a"* 256
       should_not be_valid
