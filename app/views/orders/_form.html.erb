@@ -15,5 +15,9 @@
 
 <%= simple_form_for @order do |f| %>
   <%= f.association :client %>
-  <%= f.button :submit %>
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                orders_path, :class => 'btn' %>
+  </div>
 <% end %>
