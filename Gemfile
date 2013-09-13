@@ -17,6 +17,7 @@ gem 'devise_invitable', :github => 'scambra/devise_invitable', branch: 'devise-3
 gem 'cancan'
 gem 'rails_12factor', group: :production
 ruby "2.0.0"
+gem 'capybara'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'

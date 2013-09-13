@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     save(:validate => false)
   end
 
+  def has_role?(role_in_question)
+    self.role.name.to_s == role_in_question.to_s
+  end
+
   private
 
   def generate_authentication_token
