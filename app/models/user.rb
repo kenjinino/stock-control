@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   before_save :ensure_authentication_token
-  after_initialize :default_values
+  before_create :default_values
 
   has_many :invitations, :class_name => self.to_s, :as => :invited_by
-  belongs_to :role
+  belongs_to :role, inverse_of: :users
 
   def reset_authentication_token!
     self.authentication_token = generate_authentication_token

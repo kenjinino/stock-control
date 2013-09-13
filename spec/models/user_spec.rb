@@ -14,7 +14,7 @@ describe User do
 
   describe "default values" do
     it "with delivery role" do
-      default = User.new(email: "email@email.com")
+      default = User.create(email: "email@email.com", password: "asdf1234", password_confirmation: "asdf1234")
       default.role.should == Role.find_by(name: :delivery)
     end
   end
