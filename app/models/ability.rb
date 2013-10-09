@@ -6,12 +6,15 @@ class Ability
     if user
       if user.has_role? :admin
         can [:create, :destroy], :invitation
+        can :manage, Client
+        can :manage, Product
+        can :manage, User
       end
 
       can :manage, Order
       can :manage, OrderLine
-      can :manage, Client
-      can :manage, Product
+      can :read, Client
+      can :read, Product
     end
 
     can [:edit, :update], :invitation
